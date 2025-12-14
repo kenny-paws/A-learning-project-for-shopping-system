@@ -4,6 +4,6 @@
   "service": "workspace",
   "workspaceFolder": "/workspace",
   "forwardPorts": [8080, 3306],
-  "postCreateCommand": "cd backend && mvn -DskipTests package",
+  "postCreateCommand": "mvn -f backend/pom.xml -DskipTests package",
   "shutdownAction": "stopCompose"
 }
