@@ -25,7 +25,7 @@ services:
       - db
 
   workspace:
-    image: mcr.microsoft.com/devcontainers/java:0-17
+    image: mcr.microsoft.com/devcontainers/java:0-21
     volumes:
       - ./:/workspace:cached
     working_dir: /workspace

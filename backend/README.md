@@ -21,6 +21,11 @@ docker compose up --build
 GitHub Codespaces：
 - 仓库包含 `.devcontainer/devcontainer.json` 和 `docker-compose.yml`，打开 Codespace 时会启动一个开发容器（服务名 `workspace`），并在 `postCreateCommand` 中构建后端。
 
+How to run in Codespaces / Dev Container
+- Open in GitHub Codespaces or VS Code Remote - Containers. The dev container uses Java 21 and will build the backend on create.
+- Ports forwarded: `8080` for the app, `3306` for MySQL (if you enable it).
+- To run the smoke test inside Codespaces: `cd backend && mvn test -Dtest=ApplicationSmokeTest`.
+
 示例接口：
 - `GET /api/products` 列表
 - `GET /api/products/{id}` 获取单个
