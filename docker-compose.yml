@@ -1,0 +1,38 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: shopping
+      MYSQL_USER: shop
+      MYSQL_PASSWORD: shop
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+  app:
+    build: ./backend
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/shopping?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: shop
+      SPRING_DATASOURCE_PASSWORD: shop
+      SPRING_DATASOURCE_DRIVER: com.mysql.cj.jdbc.Driver
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+  workspace:
+    image: mcr.microsoft.com/devcontainers/java:0-17
+    volumes:
+      - ./:/workspace:cached
+    working_dir: /workspace
+    command: sleep infinity
+    depends_on:
+      - db
+
+volumes:
+  db_data:
+    name: shopping_db_data
