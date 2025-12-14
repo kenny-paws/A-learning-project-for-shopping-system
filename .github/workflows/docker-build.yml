@@ -22,6 +22,7 @@ jobs:
           context: ./backend
           file: ./backend/Dockerfile
           push: false
+          load: true
           tags: shopping-system-backend:ci-${{ github.sha }}
       - name: Smoke-run image (java -version)
         run: |
