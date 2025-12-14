@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:h2:file:./data/shopping-db;DB_CLOSE_ON_EXIT=FALSE;AUTO_RECONNECT=TRUE}
+    driver-class-name: ${SPRING_DATASOURCE_DRIVER:org.h2.Driver}
+    username: ${SPRING_DATASOURCE_USERNAME:sa}
+    password: ${SPRING_DATASOURCE_PASSWORD:}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+# For MySQL through docker-compose, set env vars in the compose file:
+# SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/shopping?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+# SPRING_DATASOURCE_USERNAME=shop
+# SPRING_DATASOURCE_PASSWORD=shop
+# SPRING_DATASOURCE_DRIVER=com.mysql.cj.jdbc.Driver
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG

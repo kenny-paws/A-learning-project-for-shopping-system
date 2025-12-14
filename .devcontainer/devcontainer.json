@@ -1,0 +1,9 @@
+{
+  "name": "Shopping Codespace",
+  "dockerComposeFile": ["../docker-compose.yml"],
+  "service": "workspace",
+  "workspaceFolder": "/workspace",
+  "forwardPorts": [8080, 3306],
+  "postCreateCommand": "mvn -f backend/pom.xml -DskipTests package",
+  "shutdownAction": "stopCompose"
+}

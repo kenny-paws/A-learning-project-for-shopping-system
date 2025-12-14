@@ -1,0 +1,2 @@
+INSERT INTO products (id, name, description, price, stock) VALUES (1, '示例商品 A', '这是示例商品 A 的描述', 19.99, 10);
+INSERT INTO products (id, name, description, price, stock) VALUES (2, '示例商品 B', '这是示例商品 B 的描述', 29.99, 5);
